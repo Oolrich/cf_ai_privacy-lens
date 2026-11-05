@@ -1,0 +1,3 @@
+# Copy to .dev.vars to require a bearer token on /mcp during local development.
+# In production: npx wrangler secret put MCP_TOKEN
+MCP_TOKEN=change-me

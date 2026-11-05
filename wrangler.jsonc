@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cf-ai-privacy-lens",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-11-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+
+  // Chat UI built by Vite. Agent WebSockets and the MCP endpoint must reach
+  // the Worker before the single-page-app fallback serves index.html.
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/agents/*", "/mcp"]
+  },
+
+  "ai": { "binding": "AI" },
+
+  "durable_objects": {
+    "bindings": [
+      { "name": "PolicyAgent", "class_name": "PolicyAgent" },
+      { "name": "PolicyLibrary", "class_name": "PolicyLibrary" }
+    ]
+  },
+
+  "workflows": [
+    {
+      "name": "analyze-policy",
+      "binding": "ANALYZE_POLICY",
+      "class_name": "AnalyzePolicyWorkflow"
+    }
+  ],
+
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["PolicyAgent", "PolicyLibrary"] }
+  ]
+}
