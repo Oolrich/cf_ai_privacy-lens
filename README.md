@@ -4,7 +4,7 @@ Privacy Lens reads a website's privacy policy and tells you, in plain language, 
 
 You can use it two ways: chat with it in the browser, or connect any MCP client (Claude, Cursor, your own agent) to its MCP server and query the same reports from there.
 
-**Live demo:** `https://cf-ai-privacy-lens.<your-subdomain>.workers.dev` *(replace after deploying)*
+**Live demo:** [https://cf-ai-privacy-lens.shourya-pizzy54.workers.dev](https://cf-ai-privacy-lens.shourya-pizzy54.workers.dev)
 
 > Privacy Lens summarizes documents. It is not legal advice.
 
@@ -70,7 +70,7 @@ Progress updates stream to the sidebar the whole time through the agent's synced
 Requirements: Node.js 20 or later and a Cloudflare account (Workers AI runs remotely, even in local development).
 
 ```bash
-git clone https://github.com/<you>/cf_ai_privacy-lens.git
+git clone https://github.com/Oolrich/cf_ai_privacy-lens.git
 cd cf_ai_privacy-lens
 npm install
 npx wrangler login
